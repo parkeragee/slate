@@ -123,6 +123,15 @@ html, body {
     margin-top: $logo-margin;
   }
 
+  .logo {
+    text-align: center;
+    padding: 12px 0;
+
+    img {
+      max-width: 200px;
+    }
+  }
+
   .search-results {
     margin-top: 0;
     @include box-sizing(border-box);
@@ -348,7 +357,7 @@ html, body {
     padding: 0 $main-padding;
     @include box-sizing(border-box);
     display: block;
-    @include text-shadow($main-embossed-text-shadow);
+    /*@include text-shadow($main-embossed-text-shadow);*/
 
     @extend %left-col;
   }
@@ -487,7 +496,8 @@ html, body {
     @include text-shadow(0 1px 0 lighten($aside-notice-bg, 15%));
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    background: $aside-notice-bg;
+    background: #5AC3E8;
+    color: #FFF;
     line-height: 1.6;
 
     &.warning {
