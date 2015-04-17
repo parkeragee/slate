@@ -2,7 +2,7 @@
 
 ## List all active groups
 
-> GET /100/groups?group_types=g,t
+> GET /:account_id/groups?group_types=g,t
 
 ```json
 [
@@ -42,7 +42,7 @@
 ]
 ```
 
-> GET /100/groups?group_types=all
+> GET /:account_id/groups?group_types=all
 
 ```json
 [
@@ -94,7 +94,7 @@ Get a basic listing of all active member groups for a single account.
 
 ## Create new group(s)
 
-> POST /100/groups
+> POST /:account_id/groups
 
 ```json
 {
@@ -125,7 +125,7 @@ Create one or more new member groups.
 
 ## Get single group information
 
-> GET /100/groups/150
+> GET /:account_id/groups/:member_group_id
 
 ```json
 {
@@ -153,7 +153,7 @@ Get the detailed information for a single member group.
 
 ## Update single group information
 
-> PUT /100/groups/150
+> PUT /:account_id/groups/:member_group_id
 
 ```json
 {
@@ -179,7 +179,7 @@ Update information for a single member group.
 
 ## Delete single group
 
-> DELETE /100/groups/150
+> DELETE /:account_id/groups/:member_group_id
 
 ```json
 true
@@ -197,7 +197,7 @@ Delete a single member group.
 
 ## Get members in group
 
-> GET /100/groups/150/members
+> GET /:account_id/groups/:member_group_id/members
 
 ```json
 [
@@ -258,7 +258,7 @@ Get the members in a single active member group.
 
 ## Add members to single group
 
-> PUT /100/groups/150/members
+> PUT /:account_id/groups/:member_group_id/members
 
 ```json
 {
@@ -288,7 +288,7 @@ Add a list of members to a single active member group.
 
 ## Remove members from single group
 
-> PUT /100/groups/150/members/remove
+> PUT /:account_id/groups/:member_group_id/members/remove
 
 ```json
 {
@@ -320,13 +320,13 @@ Remove members from a single active member group.
 
 ## Delete all members from single group
 
-> DELETE /100/groups/151/members
+> DELETE /:account_id/groups/:member_group_id/members
 
 ```json
 2
 ```
 
-> DELETE /100/groups/151/members?member_status_id=a
+> DELETE /:account_id/groups/:member_group_id/members?member_status_id=a
 
 ```json
 2
@@ -348,13 +348,13 @@ Remove all members from a single active member group.
 
 ## Remove all members from all active member groups
 
-> DELETE /100/groups/151/members/remove?member_status_id=a
+> DELETE /:account_id/groups/:member_group_id/members/remove?member_status_id=a
 
 ```json
 true
 ```
 
-> DELETE /100/groups/151/members/remove?member_status_id=a&delete_members=true
+> DELETE /:account_id/groups/:member_group_id/members/remove?member_status_id=a&delete_members=true
 
 ```json
 true
@@ -376,7 +376,7 @@ Remove all members from all active member groups as a background job. The member
 
 ## Copy all members from one group to another
 
-> PUT /100/groups/151/152/members/copy
+> PUT /:account_id/groups/:member_group_id/:member_group_id/members/copy
 
 ```json
 {

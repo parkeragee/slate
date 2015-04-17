@@ -4,7 +4,7 @@ With this endpoint, you can list all of your signup forms.
 
 ## List signup forms
 
-> GET /100/signup_forms
+> GET /:account_id/signup_forms
 
 ```json
 [

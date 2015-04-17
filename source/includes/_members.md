@@ -8,7 +8,7 @@ Where this is especially important is when adding new members. To do a bulk impo
 
 ## List all members
 
-> GET /100/members?start=0&end=2
+> GET /:account_id/members?start=0&end=2
 
 ```json
 [
@@ -53,7 +53,7 @@ Where this is especially important is when adding new members. To do a bulk impo
 ]
 ```
 
-> GET /100/members?start=2&end=4&deleted=true
+> GET /:account_id/members?start=2&end=4&deleted=true
 
 ```json
 [
@@ -108,7 +108,7 @@ Get a basic listing of all members in an account.
 
 ## Get member by ID
 
-> GET /100/members/201
+> GET /:account_id/members/:member_id
 
 ```json
 {
@@ -148,7 +148,7 @@ Get detailed information on a particular member, including all custom fields.
 
 ## Get member by email address
 
-> GET /100/members/email/tony@myemma.com
+> GET /:account_id/members/email/:email
 
 ```json
 {
@@ -188,7 +188,7 @@ Get detailed information on a particular member, including all custom fields, by
 
 ## Get member opt out details by ID
 
-> GET /100/members/201/optout
+> GET /:account_id/members/:member_id/optout
 
 ```json
 []
@@ -206,7 +206,7 @@ If a member has been opted out, returns the details of their optout, specificall
 
 ## Get member opt out details by email address
 
-> PUT /100/members/email/optout/tony@myemma.com
+> PUT /:account_id/members/email/optout/:email
 
 ```json
 {}
@@ -226,7 +226,7 @@ Update a member’s status to optout keyed on email address instead of an ID.
 
 ## Add new/Update existing members
 
-> POST /100/members
+> POST /:account_id/members
 
 ```json
 {
@@ -262,7 +262,7 @@ Add new members or update existing members in bulk. If you are doing actions for
 
 ## Add new/Update existing single member
 
-> POST /100/members/add
+> POST /:account_id/members/add
 
 ```json
 {
@@ -297,7 +297,7 @@ not appear in "recent activity" searches within your account.
 
 ## Add new member to a group
 
-> POST /100/members/signup
+> POST /:account_id/members/signup
 
 ```json
 {
@@ -342,7 +342,7 @@ not appear in "recent activity" searches within your account.
 
 ## Delete group of members
 
-> PUT /100/members/delete
+> PUT /:account_id/members/delete
 
 ```json
 {
@@ -370,7 +370,7 @@ The members will be marked as deleted and cannot be retrieved.
 
 ## Change group of member's status
 
-> PUT /100/members/status
+> PUT /:account_id/members/status
 
 ```json
 {
@@ -399,7 +399,7 @@ The members will have their member_status_id updated.
 
 ## Update single member information
 
-> PUT /100/members/200
+> PUT /:account_id/members/:member_ids
 
 ```json
 {
@@ -432,7 +432,7 @@ Update the information for an existing member (even if they are marked as delete
 
 ## Delete single member
 
-> DELETE /100/members/202
+> DELETE /:account_id/members/:member_id
 
 ```json
 true
@@ -449,7 +449,7 @@ The member, along with any associated response and history information, will be 
 
 ## List member's groups
 
-> GET /100/members/200/groups
+> GET /:account_id/members/200/groups
 
 ```json
 [
@@ -498,7 +498,7 @@ Get the groups to which a member belongs.
 
 ## Add single member to group(s)
 
-> PUT /100/members/200/groups
+> PUT /:account_id/members/200/groups
 
 ```json
 {
@@ -527,7 +527,7 @@ Add a single member to one or more groups.
 
 ## Remove a single member from group(s)
 
-> PUT /100/members/200/groups/remove
+> PUT /:account_id/members/200/groups/remove
 
 ```json
 {
@@ -557,7 +557,7 @@ Remove a single member from one or more groups.
 
 ## Delete all members
 
-> DELETE /100/members?member_status_id=a
+> DELETE /:account_id/members?member_status_id=a
 
 ```json
 true
@@ -575,7 +575,7 @@ Delete all members.
 
 ## Remove single member from all groups
 
-> DELETE /100/members/200/groups
+> DELETE /:account_id/members/200/groups
 
 ```json
 true
@@ -590,7 +590,7 @@ Remove the specified member from all groups.
 
 ## Remove multiple members from groups
 
-> PUT /100/members/groups/remove
+> PUT /:account_id/members/groups/remove
 
 ```json
 {
@@ -619,7 +619,7 @@ Remove multiple members from groups.
 
 ## Get entire mailing history for member
 
-> GET /100/members/200/mailings
+> GET /:account_id/members/200/mailings
 
 ```json
 [
@@ -647,7 +647,7 @@ Get the entire mailing history for a member.
 
 ## List members of a specific import
 
-> GET /100/members/imports/200/members
+> GET /:account_id/members/imports/:member_id/members
 
 ```json
 [
@@ -668,7 +668,7 @@ Get a list of members affected by this import.
 
 ## Get single import information
 
-> GET /100/members/imports/200
+> GET /:account_id/members/imports/:member_id
 
 ```json
 {
@@ -697,7 +697,7 @@ Get information and statistics about this import.
 
 ## Get all imports information
 
-> GET /100/members/imports
+> GET /:account_id/members/imports
 
 ```json
 []
@@ -723,7 +723,7 @@ Update an import record to be marked as ‘deleted’.
 
 ## Copy all account members of one or more statuses into a group
 
-> PUT /100/members/152/copy
+> PUT /:account_id/members/:member_id/copy
 
 ```json
 {
@@ -752,7 +752,7 @@ Copy all account members of one or more statuses into a group.
 
 ## Update the status for a group of members
 
-> PUT /100/members/status/e/to/a
+> PUT /:account_id/members/status/e/to/a
 
 ```json
 {

@@ -2,7 +2,7 @@
 
 ## Get saved searches
 
-> GET /100/searches
+> GET /:account_id/searches
 
 ```json
 [
@@ -45,7 +45,7 @@ Retrieve a list of saved searches.
 
 ## Get saved search information
 
-> GET /100/searches/200
+> GET /:account_id/searches/200
 
 ```json
 {
@@ -89,7 +89,7 @@ Get the details for a saved search.
     ["clicked", 83927]
 ]
 ```
-> POST /100/searches
+> POST /:account_id/searches
 
 ```json
 {
@@ -133,7 +133,7 @@ The following parameters are required:
 
 ## Update a saved search
 
-> PUT /100/searches/200
+> PUT /:account_id/searches/200
 
 ```json
 {
@@ -175,7 +175,7 @@ No parameters are required, but either the name or criteria parameter must be pr
 
 ## Delete a saved search
 
-> DELETE /100/searches/200
+> DELETE /:account_id/searches/200
 
 ```json
 true
@@ -193,7 +193,7 @@ Delete a saved search. The member records referred to by the search are not affe
 
 ## List members matching a search
 
-> GET /100/searches/201/members
+> GET /:account_id/searches/201/members
 
 ```json
 [

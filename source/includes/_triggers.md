@@ -4,7 +4,7 @@ These endpoints provide CRUD operations for our trigger system. Creating a trigg
 
 ## List triggers
 
-> GET /100/triggers
+> GET /:account_id/triggers
 
 ```json
 [
@@ -115,7 +115,7 @@ These endpoints provide CRUD operations for our trigger system. Creating a trigg
 
 ## Create new trigger
 
-> POST /100/triggers
+> POST /:account_id/triggers
 
 ```json
 {
@@ -177,7 +177,7 @@ Create a new trigger.
 
 ## Get trigger by ID
 
-> GET /100/triggers/100
+> GET /:account_id/triggers/100
 
 ```json
 {
@@ -243,7 +243,7 @@ Look up a trigger by trigger id.
 
 ## Update a trigger
 
-> PUT /100/triggers/100
+> PUT /:account_id/triggers/100
 
 ```json
 {
@@ -265,7 +265,7 @@ Update or edit a trigger.
 
 ## Delete a trigger
 
-> DELETE /100/triggers/100
+> DELETE /:account_id/triggers/100
 
 ```json
 true
@@ -283,7 +283,7 @@ Delete a trigger.
 
 ## List mailings sent by a trigger
 
-> GET /100/triggers/101/mailings
+> GET /:account_id/triggers/101/mailings
 
 ```json
 [

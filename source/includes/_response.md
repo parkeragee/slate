@@ -4,19 +4,19 @@ We know that you want to do some fancy pivot tables with your response data, so 
 
 ## Get account response summary
 
-> GET /100/response
+> GET /:account_id/response
 
 ```json
 []
 ```
 
-> GET /100/response?range=2011-04-01~
+> GET /:account_id/response?range=2011-04-01~
 
 ```json
 []
 ```
 
-> GET /100/response?range=2011-04-01~2011-09-01
+> GET /:account_id/response?range=2011-04-01~2011-09-01
 
 ```json
 []
@@ -54,7 +54,7 @@ This method will return a month-based time series of data including sends, opens
 
 ## Get response summary of single mailing
 
-> GET /100/response/200
+> GET /:account_id/response/200
 
 ```json
 {
@@ -108,7 +108,7 @@ This method will return the counts of each type of response activity for a parti
 
 ## List messages that have been sent to an MTA for delivery
 
-> GET /100/response/200/sends
+> GET /:account_id/response/200/sends
 
 ```json
 [
@@ -171,7 +171,7 @@ Get the list of messages that have been sent to an MTA for delivery.
 
 ## List messages that are in the queue
 
-> GET /100/response/200/in_progress
+> GET /:account_id/response/200/in_progress
 
 ```json
 [
@@ -217,7 +217,7 @@ Get the list of messages that are in the queue, possibly sent, but not yet deliv
 
 ## List delivered messages
 
-> GET /100/response/200/deliveries
+> GET /:account_id/response/200/deliveries
 
 ```json
 [
@@ -266,7 +266,7 @@ This list can be limited by `delivery_type`.
 
 ## List opened messages for a campaign
 
-> GET /100/response/200/opens
+> GET /:account_id/response/200/opens
 
 ```json
 [
@@ -315,7 +315,7 @@ Get the list of opened messages for this campaign.
 
 ## List links for a mailing
 
-> GET /100/response/200/links
+> GET /:account_id/response/200/links
 
 ```json
 [
@@ -350,7 +350,7 @@ Get the list of links for this mailing.
 
 ## List clicks for a mailing
 
-> GET /100/response/200/clicks
+> GET /:account_id/response/200/clicks
 
 ```json
 [
@@ -396,7 +396,7 @@ This list can also be limited by member_id or link_id.
 
 ## List forwards for a mailing
 
-> GET /100/response/200/forwards
+> GET /:account_id/response/200/forwards
 
 ```json
 []
@@ -419,7 +419,7 @@ Get the list of forwards for this mailing.
 
 ## List optouts for a mailing
 
-> GET /100/response/200/optouts
+> GET /:account_id/response/200/optouts
 
 ```json
 [
@@ -456,7 +456,7 @@ Get the list of optouts for this mailing.
 
 ## List signups for a mailing
 
-> GET /100/response/200/signups
+> GET /:account_id/response/200/signups
 
 ```json
 [

@@ -4,7 +4,7 @@ The API calls are organized by their main entity type in the following sections.
 
 ## List account's fields
 
-> GET /100/fields
+> GET /:account_id/fields
 
 ```json
 
@@ -75,7 +75,7 @@ Gets a list of this account’s defined fields.
 
 ## Get field information
 
-> GET /100/fields/200
+> GET /:account_id/fields/:field_id
 
 ```json
 
@@ -110,7 +110,7 @@ Gets the detailed information about a particular field.
 
 ## Create new field
 
-> POST /100/fields
+> POST /:account_id/fields
 
 ```json
 {
@@ -141,7 +141,7 @@ _There must not already be a field with this name._
 
 ## Delete field
 
-> DELETE /100/fields/200
+> DELETE /:account_id/fields/:field_id
 
 ```json
 true
@@ -155,7 +155,7 @@ Deletes a field.
 
 ## Clear field data
 
-> POST /100/fields/200/clear
+> POST /:account_id/fields/:field_id/clear
 
 ```json
 {}
@@ -171,7 +171,7 @@ Clear the member data for the specified field.
 
 ## Update field data
 
-> PUT /100/fields/202
+> PUT /:account_id/fields/:field_id
 
 ```json
 {

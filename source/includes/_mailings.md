@@ -4,7 +4,7 @@ With these endpoints, you can get information about your mailings including thei
 
 ## Get mailings
 
-> GET /100/mailings
+> GET /:account_id/mailings
 
 ```json
 [
@@ -69,7 +69,7 @@ With these endpoints, you can get information about your mailings including thei
 ]
 ```
 
-> GET /100/mailings?mailing_statuses=p,c&mailing_types=m,t
+> GET /:account_id/mailings?mailing_statuses=p,c&mailing_types=m,t
 
 ```json
 [
@@ -153,7 +153,7 @@ With these endpoints, you can get information about your mailings including thei
 
 ## Get single mailing information
 
-> GET /100/mailings/200
+> GET /:account_id/mailings/:mailing_id
 
 ```json
 {
@@ -213,7 +213,7 @@ Get detailed information for one mailing.
 
 ## List members of single mailing
 
-> GET /100/mailings/200/members
+> GET /:account_id/mailings/:mailing_id/members
 
 ```json 
 [
@@ -251,7 +251,7 @@ Get the list of members to whom the given mailing was sent. This does not includ
 
 ## Get personalized message sent to specific member
 
-> GET /100/mailings/200/messages/200
+> GET /:account_id/mailings/:mailing_id/messages/200
 
 ```json
 {
@@ -261,7 +261,7 @@ Get the list of members to whom the given mailing was sent. This does not includ
 }
 ```
 
-> GET /100/mailings/200/messages/200?type=html
+> GET /:account_id/mailings/:mailing_id/messages/200?type=html
 
 ```json
 {
@@ -285,7 +285,7 @@ Gets the personalized message content as sent to a specific member as part of th
 
 ## List groups of single mailing
 
-> GET /100/mailings/200/groups
+> GET /:account_id/mailings/:mailing_id/groups
 
 ```json
 [
@@ -315,7 +315,7 @@ Get the groups to which a particular mailing was sent.
 
 ## List searches for a single sent mailing
 
-> GET /100/mailings/200/searches
+> GET /:account_id/mailings/:mailing_id/searches
 
 ```json
 []
@@ -341,7 +341,7 @@ Returns the mailing’s new status
 
 ## Archive a single mailing
 
-> DELETE /100/mailings/200
+> DELETE /:account_id/mailings/:mailing_id
 
 ```json
 true
@@ -355,7 +355,7 @@ Sets archived timestamp for a mailing so it is no longer included in mailing_lis
 
 ## Cancel a pending mailing
 
-> DELETE /100/mailings/cancel/201
+> DELETE /:account_id/mailings/cancel/:mailing_id
 
 ```json
 true
@@ -373,7 +373,7 @@ Pass public `create_mailing` requests through a filter to determine if the accou
 
 ## Forward a single mailing to additional members
 
-> POST /100/forwards/200/200
+> POST /:account_id/forwards/200/200
 
 ```json
 {
@@ -405,7 +405,7 @@ Forward a previous message to additional recipients. If these recipients are not
 
 ## Send prior mailing to additional members
 
-> POST /100/mailings/200
+> POST /:account_id/mailings/:mailing_id
 
 ```json
 {
@@ -439,7 +439,7 @@ Send a prior mailing to additional recipients. A new mailing will be created tha
 
 ## Get heads up email addresses for mailing
 
-> GET /100/mailings/200/headsup
+> GET /:account_id/mailings/:mailing_id/headsup
 
 ```json
 []
@@ -457,7 +457,7 @@ Get heads up email address(es) related to a mailing.
 
 ## Validate personalization-tag syntax of mailing
 
-> POST /100/mailings/validate
+> POST /:account_id/mailings/validate
 
 ```json
 {
@@ -485,7 +485,7 @@ Validate that a mailing has valid personalization-tag syntax. Checks tag syntax 
 
 ## Declare the winner of a split test
 
-> POST /100/mailings/202/winner/203
+> POST /:account_id/mailings/:mailing_id/winner/203
 
 ```json
 {}
