@@ -1,14 +1,10 @@
 ---
-title: API Reference
-
-#language_tabs:
- # - php
-  #- python
-  #- javascript
+title: Emma API Documentation
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='http://myemma.com'>Emma Home</a>
+  - <a href='http://myemma.com/blog'>Emma Blog</a>
+  - <a href='http://myemma.com/help'>Emma Help</a>
 
 includes:
   - fields
@@ -162,5 +158,3 @@ At this point, the API call has been made.We might want to inspect the result to
 You can [see the complete PHP script here](http://api.myemma.com/php_signup_example.html). Additionally, there’s a PHP example to [get members using their email address](http://api.myemma.com/php_get_member_example.html).
 
 To extend this example further, one could make the API call associate the new member with a particular signup form. As written above, the member would be added to the audience but would not appear in the “recent activity” type searches or really any searches related to signups. We are working on a cleaner way to handle this signup form issue in the future.
-
-#All includes will be added to the bottom of this page

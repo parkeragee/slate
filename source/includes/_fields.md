@@ -2,7 +2,7 @@
 
 The API calls are organized by their main entity type in the following sections. Each call includes sample request & response data.
 
-### GET /#account_id/fields
+## List account's fields
 
 > GET /100/fields
 
@@ -73,7 +73,7 @@ Gets a list of this account’s defined fields.
 |---|---|
 | **Returns**: | An array of fields.
 
-## GET /#account_id/fields/#field_id
+## Get field information
 
 > GET /100/fields/200
 
@@ -108,7 +108,7 @@ Gets the detailed information about a particular field.
 |---|---|
 | **Raises**: |  `Http404` if the field does not exist.
 
-## POST /#account_id/fields
+## Create new field
 
 > POST /100/fields
 
@@ -139,7 +139,7 @@ _There must not already be a field with this name._
 |---|---|
 | **Returns**: | A reference to the new field.
 
-## DELETE /#account_id/fields/#field_id
+## Delete field
 
 > DELETE /100/fields/200
 
@@ -153,7 +153,7 @@ Deletes a field.
 |---|---|
 | **Returns**: | `True` if the field is deleted, False otherwise.
 
-## POST /#account_id/fields/#field_id/clear
+## Clear field data
 
 > POST /100/fields/200/clear
 
@@ -169,7 +169,7 @@ Clear the member data for the specified field.
 |---|---|
 | **Returns**: | `True` if all of the member field data is deleted
 
-## PUT /#account_id/fields/#field_id
+## Update field data
 
 > PUT /100/fields/202
 

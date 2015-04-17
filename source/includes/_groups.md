@@ -1,6 +1,6 @@
 # Groups
 
-## GET /#account_id/groups
+## List all active groups
 
 > GET /100/groups?group_types=g,t
 
@@ -92,7 +92,7 @@ Get a basic listing of all active member groups for a single account.
 |---|---|
 | **Parameters**: | `group_types` (string) – Accepts a comma-separated string with one or more of the following group_types: ‘g’ (group), ‘t’ (test), ‘h’ (hidden), ‘all’ (all). Defaults to ‘g’.
 
-## POST /#account_id/groups
+## Create new group(s)
 
 > POST /100/groups
 
@@ -123,7 +123,7 @@ Create one or more new member groups.
 |---|---|
 | **Parameters**: | `groups` (array) – An array of group objects. Each object must contain a group_name parameter.
 
-## GET /#account_id/groups/#member_group_id
+## Get single group information
 
 > GET /100/groups/150
 
@@ -151,7 +151,7 @@ Get the detailed information for a single member group.
 |---|---|
 | **Raises**: | `Http404` if the group does not exist.
 
-## PUT /#account_id/groups/#member_group_id
+## Update single group information
 
 > PUT /100/groups/150
 
@@ -177,7 +177,7 @@ Update information for a single member group.
 |---|---|
 | **Raises**: | `Http404` if the group does not exist.
 
-## DELETE /#account_id/groups/#member_group_id
+## Delete single group
 
 > DELETE /100/groups/150
 
@@ -195,7 +195,7 @@ Delete a single member group.
 |---|---|
 | **Raises**: | `Http404` if the group does not exist.
 
-## GET /#account_id/groups/#member_group_id/members
+## Get members in group
 
 > GET /100/groups/150/members
 
@@ -256,7 +256,7 @@ Get the members in a single active member group.
 |---|---|
 | **Raises**: | `Http404` if the group does not exist.
 
-## PUT /#account_id/groups/#member_group_id/members
+## Add members to single group
 
 > PUT /100/groups/150/members
 
@@ -286,7 +286,7 @@ Add a list of members to a single active member group.
 |---|---|
 | **Raises**: | `Http404` if the group does not exist.
 
-## PUT /#account_id/groups/#member_group_id/members/remove
+## Remove members from single group
 
 > PUT /100/groups/150/members/remove
 
@@ -318,7 +318,7 @@ Remove members from a single active member group.
 |---|---|
 | **Raises**: | `Http404` if the group does not exist.
 
-## DELETE /#account_id/groups/#member_group_id/members
+## Delete all members from single group
 
 > DELETE /100/groups/151/members
 
@@ -346,7 +346,7 @@ Remove all members from a single active member group.
 |---|---|
 | **Raises**: | `Http404` if the group does not exist.
 
-## DELETE /#account_id/groups/#member_group_id/members/remove
+## Remove all members from all active member groups
 
 > DELETE /100/groups/151/members/remove?member_status_id=a
 
@@ -374,7 +374,7 @@ Remove all members from all active member groups as a background job. The member
 |---|---|
 | **Raises**: | `Http404` if the group does not exist.
 
-## PUT /#account_id/groups/#from_group_id/#to_group_id/members/copy
+## Copy all members from one group to another
 
 > PUT /100/groups/151/152/members/copy
 

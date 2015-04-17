@@ -6,7 +6,7 @@ You’ll notice that there are calls related to individual members, but we also 
 
 Where this is especially important is when adding new members. To do a bulk import, you’ll POST to the `/#account_id/members` endpoint. In return, you’ll receive an import ID. You can use this ID to check the status and results of your import. Imports are generally pretty fast, but the time to completion can vary with greater system usage.
 
-## GET /#account_id/members
+## List all members
 
 > GET /100/members?start=0&end=2
 
@@ -106,7 +106,7 @@ Get a basic listing of all members in an account.
 |---|---|
 | **Returns**: | A list of members in the given account.
 
-## GET /#account_id/members/#member_id
+## Get member by ID
 
 > GET /100/members/201
 
@@ -146,7 +146,7 @@ Get detailed information on a particular member, including all custom fields.
 |---|---|
 | **Raises**: | `Http404` if no member is found.
 
-## GET /#account_id/members/email/:email
+## Get member by email address
 
 > GET /100/members/email/tony@myemma.com
 
@@ -186,7 +186,7 @@ Get detailed information on a particular member, including all custom fields, by
 |---|---|
 | **Raises**: | `Http404` if no member is found.
 
-## GET /#account_id/members/#member_id/optout
+## Get member opt out details by ID
 
 > GET /100/members/201/optout
 
@@ -204,7 +204,7 @@ If a member has been opted out, returns the details of their optout, specificall
 |---|---|
 | **Raises**: | `Http404` if no member is found.
 
-## PUT /#account_id/members/email/optout/:email
+## Get member opt out details by email address
 
 > PUT /100/members/email/optout/tony@myemma.com
 
@@ -224,7 +224,7 @@ Update a member’s status to optout keyed on email address instead of an ID.
 |---|---|
 | **Raises**: | `Http404` if no member is found.
 
-## POST /#account_id/members
+## Add new/Update existing members
 
 > POST /100/members
 
@@ -260,7 +260,7 @@ Add new members or update existing members in bulk. If you are doing actions for
 |---|---|
 | **Returns**: | An import id
 
-## POST /#account_id/members/add
+## Add new/Update existing single member
 
 > POST /100/members/add
 
@@ -295,7 +295,7 @@ not appear in "recent activity" searches within your account.
 |---|---|
 | **Returns**: | The `member_id` of the new or updated member, whether the member was added or an existing member was updated, and the status of the member. The status will be reported as ‘a’ (active), ‘e’ (error), or ‘o’ (optout).
 
-## POST /#account_id/members/signup
+## Add new member to a group
 
 > POST /100/members/signup
 
@@ -340,7 +340,7 @@ not appear in "recent activity" searches within your account.
 |---|---|
 | **Returns**: | The `member_id` of the member, and their status. The status will be reported as ‘a’ (active), ‘e’ (error), or ‘o’ (optout).
 
-## PUT /#account_id/members/delete
+## Delete group of members
 
 > PUT /100/members/delete
 
@@ -368,7 +368,7 @@ The members will be marked as deleted and cannot be retrieved.
 | **Returns**: | `True` if all members are successfully deleted, otherwise False.
 
 
-## PUT /#account_id/members/status
+## Change group of member's status
 
 > PUT /100/members/status
 
@@ -397,7 +397,7 @@ The members will have their member_status_id updated.
 |---|---|
 | **Raises**: | `True` if the members are successfully updated, otherwise False.
 
-## PUT /#account_id/members/#member_id
+## Update single member information
 
 > PUT /100/members/200
 
@@ -430,7 +430,7 @@ Update the information for an existing member (even if they are marked as delete
 | **Raises**: | `True` if the member was updated successfully
 |   | `Http404` if no member is found.
 
-## DELETE /#account_id/members/#member_id
+## Delete single member
 
 > DELETE /100/members/202
 
@@ -447,7 +447,7 @@ The member, along with any associated response and history information, will be 
 | **Raises**: | `True` if the member is deleted.
 |   | `Http404` if no member is found.
 
-## GET /#account_id/members/#member_id/groups
+## List member's groups
 
 > GET /100/members/200/groups
 
@@ -496,7 +496,7 @@ Get the groups to which a member belongs.
 | **Raises**: | An array of groups.
 |   | `Http404` if no member is found.
 
-## PUT /#account_id/members/#member_id/groups
+## Add single member to group(s)
 
 > PUT /100/members/200/groups
 
@@ -525,7 +525,7 @@ Add a single member to one or more groups.
 | **Raises**: | An array of ids of the affected groups.
 |   | `Http404` if no member is found.
 
-## PUT /#account_id/members/#member_id/groups/remove
+## Remove a single member from group(s)
 
 > PUT /100/members/200/groups/remove
 
@@ -555,7 +555,7 @@ Remove a single member from one or more groups.
 |---|---|
 | **Raises**: | `Http404` if no member is found.
 
-## DELETE /#account_id/members
+## Delete all members
 
 > DELETE /100/members?member_status_id=a
 
@@ -573,7 +573,7 @@ Delete all members.
 |---|---|
 | **Raises**: | `True`.
 
-## DELETE /#account_id/members/#member_id/groups
+## Remove single member from all groups
 
 > DELETE /100/members/200/groups
 
@@ -588,7 +588,7 @@ Remove the specified member from all groups.
 | **Raises**: | `True` if the member is removed from all groups.
 |   | `Http404` if no member is found.
 
-## PUT /#account_id/members/groups/remove
+## Remove multiple members from groups
 
 > PUT /100/members/groups/remove
 
@@ -617,7 +617,7 @@ Remove multiple members from groups.
 | **Raises**: | `True` if the members are deleted, otherwise False.
 |   | `Http404` if any of the members or groups do not exist
 
-## GET /#account_id/members/#member_id/mailings
+## Get entire mailing history for member
 
 > GET /100/members/200/mailings
 
@@ -645,7 +645,7 @@ Get the entire mailing history for a member.
 |---|---|
 | **Raises**: | Message history details for the specified member.
 
-## GET /#account_id/members/imports/#import_id/members
+## List members of a specific import
 
 > GET /100/members/imports/200/members
 
@@ -666,7 +666,7 @@ Get a list of members affected by this import.
 |---|---|
 | **Raises**: | A list of members in the given account and import.
 
-## GET /#account_id/members/imports/#import_id
+## Get single import information
 
 > GET /100/members/imports/200
 
@@ -695,7 +695,7 @@ Get information and statistics about this import.
 |---|---|
 | **Raises**: | Import details for the given `import_id`.
 
-## GET /#account_id/members/imports
+## Get all imports information
 
 > GET /100/members/imports
 
@@ -709,7 +709,7 @@ Get information about all imports for this account.
 |---|---|
 | **Raises**: | An array of import details.
 
-## DELETE /#account_id/members/imports/delete
+## Update import status to deleted
 
 Update an import record to be marked as ‘deleted’.
 
@@ -721,7 +721,7 @@ Update an import record to be marked as ‘deleted’.
 |---|---|
 | **Raises**: | `Http404` if the import record does not exist
 
-## PUT /#account_id/members/#group_id/copy
+## Copy all account members of one or more statuses into a group
 
 > PUT /100/members/152/copy
 
@@ -750,7 +750,7 @@ Copy all account members of one or more statuses into a group.
 |---|---|
 | **Raises**: | `Http404` if the group does not exist.
 
-## PUT /#account_id/members/status/:status_from/to/:status_to
+## Update the status for a group of members
 
 > PUT /100/members/status/e/to/a
 

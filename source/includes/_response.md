@@ -2,7 +2,7 @@
 
 We know that you want to do some fancy pivot tables with your response data, so we’ve provided quite a few endpoints here to give you access to that response data. You can get overview numbers for all of your mailings and also drill down into finding out the actual members who opened a particular mailing.
 
-## GET /#account_id/response
+## Get account response summary
 
 > GET /100/response
 
@@ -52,7 +52,7 @@ This method will return a month-based time series of data including sends, opens
 | **Parameters**: | `include_archived` (boolean) – Accepts 1. All other values are False. Optional flag to include archived mailings in the list.
 |   | `range` (string) – Accepts 2 dates (YYYY-MM-DD) delimited by a tilde (~). Example: 2011-04-01~2011-09-01 Optional argument to limit results to a date range. If one of the dates is omitted, the default will be either min date or now. If a single date is provided with no tilde, then only mailings sent on that date will be included.
 
-## GET /#account_id/response/#mailing_id
+## Get response summary of single mailing
 
 > GET /100/response/200
 
@@ -106,7 +106,7 @@ This method will return the counts of each type of response activity for a parti
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/sends
+## List messages that have been sent to an MTA for delivery
 
 > GET /100/response/200/sends
 
@@ -169,7 +169,7 @@ Get the list of messages that have been sent to an MTA for delivery.
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/in_progress
+## List messages that are in the queue
 
 > GET /100/response/200/in_progress
 
@@ -215,7 +215,7 @@ Get the list of messages that are in the queue, possibly sent, but not yet deliv
 | **Raises**: | `Http404` if the mailing does not exist. |
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/deliveries
+## List delivered messages
 
 > GET /100/response/200/deliveries
 
@@ -264,7 +264,7 @@ This list can be limited by `delivery_type`.
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/opens
+## List opened messages for a campaign
 
 > GET /100/response/200/opens
 
@@ -313,7 +313,7 @@ Get the list of opened messages for this campaign.
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/links
+## List links for a mailing
 
 > GET /100/response/200/links
 
@@ -348,7 +348,7 @@ Get the list of links for this mailing.
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/clicks
+## List clicks for a mailing
 
 > GET /100/response/200/clicks
 
@@ -394,7 +394,7 @@ This list can also be limited by member_id or link_id.
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/forwards
+## List forwards for a mailing
 
 > GET /100/response/200/forwards
 
@@ -417,7 +417,7 @@ Get the list of forwards for this mailing.
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/optouts
+## List optouts for a mailing
 
 > GET /100/response/200/optouts
 
@@ -454,7 +454,7 @@ Get the list of optouts for this mailing.
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/signups
+## List signups for a mailing
 
 > GET /100/response/200/signups
 
@@ -494,7 +494,7 @@ Get the list of signups for this mailing.
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/shares
+## List shares for a mailing
 
 Get the list of shares for this mailing
 
@@ -510,7 +510,7 @@ Get the list of shares for this mailing
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/customer_shares
+## List customer shares for a mailing
 
 Get the list of customer shares for this mailing
 
@@ -525,7 +525,7 @@ Get the list of customer shares for this mailing
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/customer_share_clicks
+## List customer share clicks for a mailing
 
 Get the list of customer share clicks for this mailing
 
@@ -541,7 +541,7 @@ Get the list of customer share clicks for this mailing
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#share_id/customer_share
+## Get customer share information
 
 Get the customer share associated with the share id.
 
@@ -557,7 +557,7 @@ Get the customer share associated with the share id.
 | **Raises**: | `Http404` if the mailing does not exist.
 |   | `Http404` if the mailing is not valid mailing type - ‘m’ for standard mailings, ‘t’ for test mailings and ‘r’ for trigger mailings.
 
-## GET /#account_id/response/#mailing_id/shares/overview
+## Get overview of shares
 
 Get overview of shares pertaining to this `mailing_id`.
 

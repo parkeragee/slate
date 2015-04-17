@@ -2,7 +2,7 @@
 
 With these endpoints, you can get information about your mailings including their HTML contents. You can retrieve the members to whom the mailing was sent. You can also pause mailings and cancel mailings that are pending or paused.
 
-## GET /#account_id/mailings
+## Get mailings
 
 > GET /100/mailings
 
@@ -151,7 +151,7 @@ With these endpoints, you can get information about your mailings including thei
 |---|---|
 | **Raises**: | `Http400` if invalid mailing types or statuses are specified.
 
-## GET /#account_id/mailings/#mailing_id
+## Get single mailing information
 
 > GET /100/mailings/200
 
@@ -211,7 +211,7 @@ Get detailed information for one mailing.
 |---|---|
 | **Raises**: | `Http404` if no mailing is found.
 
-## GET /#account_id/mailings/#mailing_id/members
+## List members of single mailing
 
 > GET /100/mailings/200/members
 
@@ -249,7 +249,7 @@ Get the list of members to whom the given mailing was sent. This does not includ
 |---|---|
 | **Raises**: | `Http404` if no mailing is found.
 
-## GET /#account_id/mailings/#mailing_id/messages/#member_id
+## Get personalized message sent to specific member
 
 > GET /100/mailings/200/messages/200
 
@@ -283,7 +283,7 @@ Gets the personalized message content as sent to a specific member as part of th
 |---|---|
 | **Raises**: | `Http404` if no message is found.
 
-## GET /#account_id/mailings/#mailing_id/groups
+## List groups of single mailing
 
 > GET /100/mailings/200/groups
 
@@ -313,7 +313,7 @@ Get the groups to which a particular mailing was sent.
 |---|---|
 | **Raises**: | `Http404` if no mailing is found.
 
-## GET /#account_id/mailings/#mailing_id/searches
+## List searches for a single sent mailing
 
 > GET /100/mailings/200/searches
 
@@ -331,7 +331,7 @@ Get all searches associated with a sent mailing.
 |---|---|
 | **Raises**: | `Http404` if no mailing is found.
 
-## PUT /#account_id/mailings/#mailing_id
+## Update current mailing status
 
 Update status of a current mailing
 
@@ -339,7 +339,7 @@ The status can be one of `canceled`, `paused` or `ready`. This method can be use
 
 Returns the mailing’s new status
 
-## DELETE /#account_id/mailings/#mailing_id
+## Archive a single mailing
 
 > DELETE /100/mailings/200
 
@@ -353,7 +353,7 @@ Sets archived timestamp for a mailing so it is no longer included in mailing_lis
 |---|---|
 | **Returns**: | `True` if the mailing is successfully archived.
 
-## DELETE /#account_id/mailings/cancel/#mailing_id
+## Cancel a pending mailing
 
 > DELETE /100/mailings/cancel/201
 
@@ -367,11 +367,11 @@ Cancels a mailing that has a current status of pending or paused. All other stat
 |---|---|
 | **Returns**: | `True` if mailing marked as cancelled.
 
-## POST /#account_id/mailings
+## Check for private API permissions
 
-Pass public create_mailing requests through a filter to determine if the account is permitted to use the private api create mailing
+Pass public `create_mailing` requests through a filter to determine if the account is permitted to use the private api create mailing
 
-## POST /#account_id/forwards/#mailing_id/#member_id
+## Forward a single mailing to additional members
 
 > POST /100/forwards/200/200
 
@@ -403,7 +403,7 @@ Forward a previous message to additional recipients. If these recipients are not
 |---|---|
 | **Raises**: | `Http404` if no message is found.
 
-## POST /#account_id/mailings/#mailing_id
+## Send prior mailing to additional members
 
 > POST /100/mailings/200
 
@@ -437,7 +437,7 @@ Send a prior mailing to additional recipients. A new mailing will be created tha
 |---|---|
 | **Raises**: | `Http404` if no mailing is found.
 
-## GET /#account_id/mailings/#mailing_id/headsup
+## Get heads up email addresses for mailing
 
 > GET /100/mailings/200/headsup
 
@@ -455,7 +455,7 @@ Get heads up email address(es) related to a mailing.
 |---|---|
 | **Raises**: | `Http404` if no mailing is found.
 
-## POST /#account_id/mailings/validate
+## Validate personalization-tag syntax of mailing
 
 > POST /100/mailings/validate
 
@@ -483,7 +483,7 @@ Validate that a mailing has valid personalization-tag syntax. Checks tag syntax 
 |---|---|
 | **Raises**: | `Http400` if any tags are invalid. The response body will have information about the invalid tags.
 
-## POST /#account_id/mailings/#mailing_id/winner/#winner_id
+## Declare the winner of a split test
 
 > POST /100/mailings/202/winner/203
 

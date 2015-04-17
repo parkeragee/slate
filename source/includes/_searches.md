@@ -1,6 +1,6 @@
 # Searches
 
-## GET /#account_id/searches
+## Get saved searches
 
 > GET /100/searches
 
@@ -43,7 +43,7 @@ Retrieve a list of saved searches.
 |---|---|
 | **Returns**: | An array of searches.
 
-## GET /#account_id/searches/#search_id
+## Get saved search information
 
 > GET /100/searches/200
 
@@ -76,7 +76,7 @@ Get the details for a saved search.
 |---|---|
 | **Raises**: | `Http404` if the search does not exist.
 
-## POST /#account_id/searches
+## Create a saved search
 
 ```json
 ["and",
@@ -131,7 +131,7 @@ The following parameters are required:
 |---|---|
 | **Raises**: | `Http400` if the search is invalid
 
-## PUT /#account_id/searches/#search_id
+## Update a saved search
 
 > PUT /100/searches/200
 
@@ -173,7 +173,7 @@ No parameters are required, but either the name or criteria parameter must be pr
 | **Raises**: | `Http404` if the search does not exist.
 |   | `Http400` if the search criteria is invalid
 
-## DELETE /#account_id/searches/#search_id
+## Delete a saved search
 
 > DELETE /100/searches/200
 
@@ -191,7 +191,7 @@ Delete a saved search. The member records referred to by the search are not affe
 |---|---|
 | **Raises**: | `Http404` if the search does not exist.
 
-## GET /#account_id/searches/#search_id/members
+## List members matching a search
 
 > GET /100/searches/201/members
 

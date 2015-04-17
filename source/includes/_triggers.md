@@ -2,7 +2,7 @@
 
 These endpoints provide CRUD operations for our trigger system. Creating a trigger is probably the most widely used of these operations.
 
-## GET /#account_id/triggers
+## List triggers
 
 > GET /100/triggers
 
@@ -113,7 +113,7 @@ These endpoints provide CRUD operations for our trigger system. Creating a trigg
 ]
 ```
 
-## POST /#account_id/triggers
+## Create new trigger
 
 > POST /100/triggers
 
@@ -175,7 +175,7 @@ Create a new trigger.
 | **Raises**: | `Http500` if object_ids is null and event_type is one of: ‘s’ (signup), ‘c’ (click), ‘u’ (survey).
 |   | `Http500` if field_id is null and event_type is one of: ‘d’ (date), ‘r’ (recurring date).
 
-## GET /#account_id/triggers/#trigger_id
+## Get trigger by ID
 
 > GET /100/triggers/100
 
@@ -241,7 +241,7 @@ Look up a trigger by trigger id.
 |---|---|
 | **Raises**: | `Http404` if no trigger is found.
 
-## PUT /#account_id/triggers/#trigger_id
+## Update a trigger
 
 > PUT /100/triggers/100
 
@@ -263,7 +263,7 @@ Update or edit a trigger.
 |---|---|
 | **Raises**: | `Http404` if no trigger is found.
 
-## DELETE /#account_id/triggers/#trigger_id
+## Delete a trigger
 
 > DELETE /100/triggers/100
 
@@ -281,7 +281,7 @@ Delete a trigger.
 |---|---|
 | **Raises**: | `Http404` if no trigger is found.
 
-## GET /#account_id/triggers/#trigger_id/mailings
+## List mailings sent by a trigger
 
 > GET /100/triggers/101/mailings
 

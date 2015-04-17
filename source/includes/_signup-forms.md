@@ -2,7 +2,7 @@
 
 With this endpoint, you can list all of your signup forms.
 
-## GET /#account_id/signup_forms
+## List signup forms
 
 > GET /100/signup_forms
 
